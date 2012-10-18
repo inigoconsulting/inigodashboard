@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:tal="http://xml.zope.org/namespaces/tal"
+   xmlns:metal="http://xml.zope.org/namespaces/metal">
+   <head>
+   </head>
+   <body>
+      <div id="login-form-wrapper">
+         <div id="notifications" tal:condition="view.notification.peek()">
+            <tal:r repeat="message view.notification.pop()">
+               <div tal:attributes="class string:alert alert-${message['type']}">
+                  <button type="button" class="close" data-dismiss="alert">×</button>
+                  <span tal:content="message['message']"></span>
+               </div>
+            </tal:r>
+         </div>
+
+         <form class="form-horizontal" method="POST">
+            <div class="control-group">
+               <label class="control-label" for="login">Login</label>
+               <div class="controls">
+                  <input type="text" id="login" name="login" placeholder="Login"/>
+               </div>
+            </div>
+            <div class="control-group">
+               <label class="control-label" for="password">Password</label>
+               <div class="controls">
+                  <input type="password" id="password" name="password" placeholder="Password"/>
+               </div>
+            </div>
+            <div class="control-group">
+               <div class="controls">
+                  <button type="submit" class="btn">Login</button>
+               </div>
+            </div>
+         </form>
+      </div>
+   </body>
+</html>

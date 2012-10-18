@@ -1,0 +1,19 @@
+<div class="ticket-details">
+
+   <h2>#<tal:r replace="ticket['id']"/> <tal:r replace="ticket['summary']"/></h2>
+   <a tal:attributes="href ticket['url']" tal:content="ticket['url']"></a>
+
+   <div class="details well">
+      <div tal:content="structure ticket['description-html']"></div>
+   </div>
+   <div class="comments">
+
+      <div class="comment row" tal:repeat="comment ticket['comments']">
+         <div class="span1">&nbsp;</div>
+         <div class="span10">
+            <div>By <tal:r replace="comment['author']"/> on <tal:r replace="comment['time']"/></div>
+            <div tal:content="structure comment['comment-html']" class="well"></div>
+         </div>
+      </div>
+   </div>
+</div>

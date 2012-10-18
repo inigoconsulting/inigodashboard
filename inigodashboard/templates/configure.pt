@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="view.layout">
+<head>
+</head>
+<body>
+   <div metal:fill-slot="content">
+      <table class="table table-striped">
+         <thead>
+            <tr><th>Name</th><th>URL</th></tr>
+         </thead>
+         <tbody>
+            <tr tal:repeat="data urls">
+               <td tal:content="data[0]"></td>
+               <td><a tal:attributes="href data[1]" tal:content="data[1]"></a></td>
+            </tr>
+         </tbody>
+      </table>
+  </div>
+</body>
+</html>

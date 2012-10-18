@@ -1,0 +1,22 @@
+<table id='trac-tickets-table' class="table table-hover">
+   <thead>
+      <tr><th>#</th><th>Description</th><th>Project</th><th>Priority</th></tr>
+   </thead>
+   <tbody>
+      <tr tal:repeat="ticket tickets" tal:attributes="class ticket['priority']">
+         <td><a tal:attributes="href ticket['url']" tal:content="string:${ticket['project']}:${ticket['id']}">123</a></td>
+         <td><a 
+               class="pane-url"
+               tal:attributes="href request.route_url('ticket-details', project=ticket['project'], id=ticket['id'])"
+                tal:content="ticket['summary']">Hello world</a></td>
+         <td tal:content="ticket['project']">Inigo</td>
+         <td tal:content="ticket['priority']">Open</td>
+      </tr>
+   </tbody>
+</table>
+<script type="text/javascript">
+   $('#trac-tickets-table').tablesorter();
+</script>
+
+
+

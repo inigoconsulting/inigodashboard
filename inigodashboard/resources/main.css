@@ -1,0 +1,31 @@
+/* main css style sheet for  */
+
+/*#portal-wrapper {
+    margin: 0 auto;
+    width:940px;
+}*/
+
+#login-form-wrapper {
+    margin: 0 auto;
+    width:500px;
+    top: 200px;
+    position:relative;
+}
+
+#portal-header {
+    margin-top: 30px;
+    margin-bottom:20px;
+}
+
+.table tr.critical td {
+    background: #F2DEDE;
+}
+
+.table tr.major td {
+    background: #FCF8E3;
+}
+
+.ajax-loader {
+    text-align:center;
+    width:100%;
+}

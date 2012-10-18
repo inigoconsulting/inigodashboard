@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<metal:master define-macro="master">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:tal="http://xml.zope.org/namespaces/tal"
+   xmlns:metal="http://xml.zope.org/namespaces/metal">
+   <head>
+   </head>
+   <body>
+      <div id="portal-wrapper" class="container">
+         <div id="portal-header">
+            <img tal:attributes="src request.static_url('inigodashboard:static/logo.png')"/>
+         </div>
+         <div id="navigation">
+            <ul class="nav nav-tabs">
+               <li><a tal:attributes="href request.route_url('home')">My Tickets</a></li>
+               <li><a tal:attributes="href request.route_url('configure')">Settings</a></li>
+            </ul>
+         </div>
+         <div id="notifications" tal:condition="view.notification.peek()">
+            <tal:r repeat="message view.notification.pop()">
+            <div tal:attributes="class string:alert alert-${message['type']}">
+               <button type="button" class="close" data-dismiss="alert">×</button>
+               <span tal:content="message['message']"></span>
+            </div>
+            </tal:r>
+         </div>
+         <div metal:define-slot="content">
+         </div>
+      </div>
+      <div style="display:none">
+         <div id="ajax-loader">
+            <div class="ajax-loader">
+               <img tal:attributes="src request.static_url('inigodashboard:static/ajax-loader.gif')"/>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
+</metal:master>
